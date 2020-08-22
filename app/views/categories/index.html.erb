@@ -1,0 +1,50 @@
+<!-- Page Content  -->
+<div id="content-page" class="content-page">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="iq-card">
+          <div class="iq-card-header d-flex justify-content-between">
+            <div class="iq-header-title">
+              <h4 class="card-title">Genre Lists</h4>
+            </div>
+            <div class="iq-card-header-toolbar d-flex align-items-center">
+              <a href="<%= genre_new_path %>" class="btn btn-primary text-white">Add New Genre</a>
+            </div>
+          </div>
+          <div class="iq-card-body">
+            <div class="table-responsive">
+              <table class="data-tables table table-striped table-bordered" style="width:100%">
+                <thead>
+                <tr>
+                  <th width="10%">Genre Name</th>
+                  <th width="10%">Reference</th>
+                  <th width="65%">Genre Description</th>
+                  <th width="10%">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% @categories.each do |category| %>
+                <tr>
+                  <td><%= category.name %></td>
+                  <td><%= category.ref %></td>
+                  <td>
+                    <p class="mb-0"><%= category.description %></p>
+                  </td>
+                  <td>
+                    <div class="flex align-items-center list-user-action">
+                      <a class="bg-primary text-white" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" href="edit_genre/<%= category.id %>"><i class="las la-edit"></i></a>
+                      <a class="bg-primary text-white" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" href="delete_genre/<%= category.id %>"><i class="las la-trash-alt"></i></a>
+                    </div>
+                  </td>
+                </tr>
+                <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<!-- Page Content  -->
+<div id="content-page" class="content-page">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <% flash.each do |message_type, message| %>
+          <div class="alert alert-dismissible fade show alert-danger" role="alert">
+            <%= message %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="color: #0b0b0b">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <% end %>
+        <div class="iq-card">
+          <div class="iq-card-header d-flex justify-content-between">
+            <div class="iq-header-title">
+              <h4 class="card-title">Add Genre</h4>
+            </div>
+          </div>
+          <div class="iq-card-body">
+            <%= form_for(:category, url: 'add_genre') do |f| %>
+              <div class="form-group">
+                <label>Genre Name:</label>
+                <%= f.text_field :name, required: true, class: 'form-control',id: 'name' %>
+              </div>
+              <div class="form-group">
+                <label>Genre Description:</label>
+                <%= f.text_area :description, required: true, class: 'form-control' , id: 'description', rows: 4 %>
+              </div>
+              <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+              <%= f.submit "submit", class: "btn btn-primary" %>
+              <button type="reset" class="btn btn-danger">Reset</button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

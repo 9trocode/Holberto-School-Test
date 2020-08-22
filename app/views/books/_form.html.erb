@@ -1,32 +1,37 @@
-<%= form_with(model: book, local: true) do |form| %>
-  <% if book.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
 
-      <ul>
-      <% book.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<!-- Page Content  -->
+<div class="iq-card-body">
+  <%= form_with(model: book, local: true) do |form| %>
+    <% if book.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+        <ul>
+          <% book.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="form-group">
+      <%= form.label :title %>
+      <%= form.text_field :title, id: :book_title, required: true, class: 'form-control' %>
     </div>
+    <div class="form-group">
+      <%= form.label :author %>
+      <%= form.text_field :author, id: :author, class: 'form-control', required: true %>
+    </div>
+    <div class="form-group">
+      <%= form.label 'Genre' %>
+      <%= form.select :categories_id, options_from_collection_for_select(@genre, "id", "name"), prompt: "Select Genre", class:"form-control form-search-control bg-white border-0", id: 'exampleFormControlSelect1' %>
+    </div>
+    <div class="form-group">
+      <%= form.label 'Library Location' %>
+      <%= form.select :libary_locations_id,  options_from_collection_for_select(@locations, "id", "name"), prompt: "Select Location", id: 'exampleFormControlSelect2', class: 'form-control form-search-control bg-white border-0' %>
+    </div>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+    <%= form.submit class: "btn btn-primary" %>
+    <button type="reset" class="btn btn-danger">Reset</button>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :book_title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :author_id %>
-    <%= form.text_field :author_id, id: :book_author_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :categories_id %>
-    <%= form.text_field :categories_id, id: :book_categories_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

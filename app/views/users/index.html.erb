@@ -1,0 +1,139 @@
+<p id="notice"><%= notice %></p>
+
+<!--<h1>Users</h1>-->
+
+<!--<table>-->
+<!--  <thead>-->
+<!--    <tr>-->
+<!--      <th>Email</th>-->
+<!--      <th colspan="3"></th>-->
+<!--    </tr>-->
+<!--  </thead>-->
+
+<!--  <tbody>-->
+    <%# @users.each do |user| %>
+<!--      <tr>-->
+<!--        <td><%#= user.email %></td>-->
+<!--        <td><%#= link_to 'Show', user %></td>-->
+<!--        <td><%#= link_to 'Edit', edit_user_path(user) %></td>-->
+<!--        <td><%#= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+<!--      </tr>-->
+    <%# end %>
+<!--  </tbody>-->
+<!--</table>-->
+
+<!--<br>-->
+
+<%#= link_to 'New User', new_user_path %>
+<!-- Page Content  -->
+<div id="content-page" class="content-page">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="iq-card">
+          <div class="iq-card-body p-0">
+            <div class="iq-edit-list">
+              <ul class="iq-edit-profile d-flex nav nav-pills">
+                <li class="col-md-3 p-0">
+                  <a class="nav-link active" data-toggle="pill" href="#personal-information">
+                    Personal Information
+                  </a>
+                </li>
+                <li class="col-md-3 p-0">
+                  <a class="nav-link" data-toggle="pill" href="#chang-pwd">
+                    Change Password
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="iq-edit-list-data">
+          <div class="tab-content">
+            <div class="tab-pane fade active show" id="personal-information" role="tabpanel">
+              <div class="iq-card">
+                <div class="iq-card-header d-flex justify-content-between">
+                  <div class="iq-header-title">
+                    <h4 class="card-title">Personal Information</h4>
+                  </div>
+                </div>
+                <div class="iq-card-body">
+                  <% flash.each do |message_type, message| %>
+                    <div class="alert alert-dismissible fade show alert-success" role="alert">
+                      <%= message %>
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="color: #0b0b0b">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                  <% end %>
+                  <%= form_for(:user, url: 'update_profile') do |f| %>
+                  <div class="form-group row align-items-center">
+                      <div class="col-md-12">
+                        <div class="profile-img-edit">
+                          <img class="profile-pic" src="<%= current_user.profile_url %>" alt="profile-pic">
+                        </div>
+                      </div>
+                    </div>
+                    <div class=" row align-items-center">
+                      <div class="form-group col-sm-6">
+                        <label for="fname">Full Name:</label>
+                        <%= f.text_field :name, required: true, class: 'form-control',id: 'fname', value: current_user.name %>
+                      </div>
+                      <div class="form-group col-sm-6">
+                        <label for="lname">Email:</label>
+                        <%= f.text_field :email, required: true, class: 'form-control', disabled: true , id: 'email', value: current_user.email %>
+                      </div>
+                      <div class="form-group col-sm-6">
+                        <label for="uname">Phone No:</label>
+                        <%= f.text_field :phone, required: true, class: 'form-control', disabled: true , id: 'phone', value: current_user.phone %>
+                      </div>
+                      <div class="form-group col-sm-6">
+                        <label for="cname">City:</label>
+                        <%= f.text_field :city, required: true, class: 'form-control', disabled: false , id: 'city', value: current_user.city %>
+                      </div>
+                      <%= hidden_field_tag :id, current_user.id %>
+                      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                      <div class="form-group col-sm-12">
+                        <label>Address:</label>
+                        <%= f.text_area :address, required: true, class: 'form-control', disabled: false , id: 'address', value: current_user.address %>
+                      </div>
+                    </div>
+                    <%= f.submit "Submit", class: "btn btn-primary mr-2" %>
+                    <button type="reset" class="btn iq-bg-danger">Cancel</button>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="chang-pwd" role="tabpanel">
+              <div class="iq-card">
+                <div class="iq-card-header d-flex justify-content-between">
+                  <div class="iq-header-title">
+                    <h4 class="card-title">Change Password</h4>
+                  </div>
+                </div>
+                <div class="iq-card-body">
+                  <%= form_for(:user, url: 'update_profile') do |f| %>
+                    <div class="form-group">
+                      <label for="npass">New Password:</label>
+                      <%= f.password_field :password, required: true, class: 'form-control', id: 'npass', placeholder: 'Password' %>
+                    </div>
+                    <%= hidden_field_tag :id, current_user.id %>
+                    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                    <div class="form-group">
+                      <label for="vpass">Confirm Password:</label>
+                      <%= f.password_field :password_confirmation, required: true, class: 'form-control', id: 'vpass', placeholder: 'Confirm Password' %>
+                    </div>
+                    <%= f.submit "Submit", class: "btn btn-primary mr-2" %>
+                    <button type="reset" class="btn iq-bg-danger">Cancel</button>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<% provide(:title, "Register") %>
+<!-- Sign in Start -->
+<section class="sign-in-page">
+  <div class="container p-0">
+    <div class="row no-gutters height-self-center">
+      <div class="col-sm-12 align-self-center page-content rounded">
+        <div class="row m-0">
+          <div class="col-sm-12 sign-in-page-data">
+            <div class="sign-in-from bg-primary rounded">
+              <h3 class="mb-0 text-center text-white">Sign Up</h3>
+              <p class="text-center text-white">Enter your email address and password to access admin panel.</p>
+              <%= form_for @user, :url => {:action =>'register'}, class: 'mt-4 form-text', :html => {:method => "post"} do |f| %>
+                <div class="form-group">
+                  <%= f.label "Your Full Name", for:"exampleInputEmail1", class: 'text-white'%><br>
+                  <%= f.text_field :name, required: true, class:'form-control mb-0', placeholder:'Your Full Name',  :input_html => {:id=>'exampleInputEmail1'} %>
+                </div>
+                <div class="form-group">
+                  <%= f.label "Email address", for:"exampleInputEmail2", class: 'text-white'%><br>
+                  <%= f.text_field :email, required: true, :input_html => {:id=>'email'}, class: 'form-control mb-0', id: 'exampleInputEmail2', placeholder: 'Enter email'%>
+                </div>
+                <div class="form-group">
+                  <%= f.label "Phone No", for:"exampleInputEmail2", class: 'text-white'%><br>
+                  <%= f.text_field :phone, required: true, :input_html => {:id=>'phone'}, class: 'form-control mb-0', id: 'exampleInputEmail2', placeholder: 'Enter Phone No'%>
+                </div>
+                <div class="form-group">
+                  <%= f.label 'Password', for:'exampleInputPassword1', class: 'text-white'%><br>
+                  <%= f.password_field :password,required: true, :input_html => {:id=>'password'}, id: 'exampleInputPassword1', class: 'form-control mb-0', placeholder: 'Password'%>
+                </div>
+                <div class="sign-info text-center">
+                  <%= f.submit 'Sign Up', :class => 'btn btn-white d-block w-100 mb-2'%>
+                  <span class="text-light d-inline-block line-height-2">Already Have Account ?
+                    <%= link_to "Log In", "/", class: "text-white" %>
+                  </span>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

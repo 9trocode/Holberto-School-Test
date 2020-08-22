@@ -1,4 +1,4 @@
 class Book < ApplicationRecord
-  belongs_to :author
-  belongs_to :categories
+  belongs_to :categories, required: false
+  belongs_to :libary_locations, required: false
 end
