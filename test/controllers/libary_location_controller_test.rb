@@ -2,7 +2,7 @@ require 'test_helper'
 
 class LibaryLocationsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @libary_location = libary_locations(:one)
+    @libary_locations = libary_locations(:one)
   end
 
   test "should get index" do
@@ -16,31 +16,31 @@ class LibaryLocationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create libary_location" do
-    assert_difference('LibaryLocations.count') do
-      post libary_locations_url, params: { libary_location: { city: @libary_location.city, name: @libary_location.name, ref: @libary_location.ref } }
+    assert_difference('LibaryLocation.count') do
+      post libary_locations_url, params: {libary_locations: {city: @libary_locations.city, name: @libary_locations.name, ref: @libary_locations.ref } }
     end
 
     assert_redirected_to libary_location_url(LibaryLocations.last)
   end
 
   test "should show libary_location" do
-    get libary_location_url(@libary_location)
+    get libary_location_url(@libary_locations)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_libary_location_url(@libary_location)
+    get edit_libary_location_url(@libary_locations)
     assert_response :success
   end
 
   test "should update libary_location" do
-    patch libary_location_url(@libary_location), params: { libary_location: { city: @libary_location.city, name: @libary_location.name, ref: @libary_location.ref } }
-    assert_redirected_to libary_location_url(@libary_location)
+    patch libary_location_url(@libary_locations), params: {libary_locations: {city: @libary_locations.city, name: @libary_locations.name, ref: @libary_locations.ref } }
+    assert_redirected_to libary_location_url(@libary_locations)
   end
 
   test "should destroy libary_location" do
-    assert_difference('LibaryLocations.count', -1) do
-      delete libary_location_url(@libary_location)
+    assert_difference('LibaryLocation.count', -1) do
+      delete libary_location_url(@libary_locations)
     end
 
     assert_redirected_to libary_locations_url

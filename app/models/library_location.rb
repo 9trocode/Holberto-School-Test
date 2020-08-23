@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class LibaryLocations < ApplicationRecord
+class LibraryLocation < ApplicationRecord
   before_save do
     self.ref = 'bookLib_' + SecureRandom.alphanumeric if ref.nil?
   end

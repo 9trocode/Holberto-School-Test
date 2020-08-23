@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @library_location.name %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @library_location.city %>
+</p>
+
+<p>
+  <strong>Ref:</strong>
+  <%= @library_location.ref %>
+</p>
+
+<%= link_to 'Edit', edit_library_location_path(@library_location) %> |
+<%= link_to 'Back', library_locations_path %>

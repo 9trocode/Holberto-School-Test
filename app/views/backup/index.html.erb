@@ -9,7 +9,7 @@
               <h4 class="card-title">Libary Lists</h4>
             </div>
             <div class="iq-card-header-toolbar d-flex align-items-center">
-              <a href="<%= new_libary_location_path %>" class="btn btn-primary text-white">Add New Library</a>
+              <a href="<%= new_library_location_path %>" class="btn btn-primary text-white">Add New Library</a>
             </div>
           </div>
           <div class="iq-card-body">
@@ -25,18 +25,18 @@
                 </tr>
                 </thead>
                 <tbody>
-                <% @libary_locations.each do |libary_location| %>
+                <% @library_location.each do |library_location| %>
                   <tr>
-                    <td><%= libary_location.name %></td>
-                    <td><%= libary_location.city %></td>
-                    <td><%= libary_location.ref %></td>
+                    <td><%= library_location.name %></td>
+                    <td><%= library_location.city %></td>
+                    <td><%= library_location.ref %></td>
                     <td>
-                      <p class="mb-0"><%= libary_location.location_desc %></p>
+                      <p class="mb-0"><%= library_location.location_desc %></p>
                     </td>
                     <td>
                       <div class="flex align-items-center list-user-action">
-                        <a class="bg-primary text-white" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" href="<%= edit_libary_location_path(libary_location) %>"><i class="las la-edit"></i></a>
-                        <%= link_to libary_location, method: :delete, data: { confirm: 'Are you sure?' }, class:"bg-primary text-white" do %>
+                        <a class="bg-primary text-white" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" href="<%= edit_library_location_path(library_location) %>"><i class="las la-edit"></i></a>
+                        <%= link_to library_location, method: :delete, data: { confirm: 'Are you sure?' }, class:"bg-primary text-white" do %>
                           <i class="las la-trash-alt"></i>
                         <% end %>
                       </div>
