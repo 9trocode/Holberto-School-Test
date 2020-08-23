@@ -1,9 +1,9 @@
 require "application_system_test_case"
 
-class LibaryLocationsTest < ApplicationSystemTestCase
+class LibaryLocationTest < ApplicationSystemTestCase
   # test "visiting the index" do
-  #   visit libary_locations_url
+  #   visit library_location_url
   #
-  #   assert_selector "h1", text: "LibaryLocation"
+  #   assert_selector "h1", text: "LibraryLocation"
   # end
 end

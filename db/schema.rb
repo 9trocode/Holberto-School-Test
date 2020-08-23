@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200820120830) do
+ActiveRecord::Schema.define(version: 20200822051025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,12 +18,14 @@ ActiveRecord::Schema.define(version: 20200820120830) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.string "author"
+    t.bigint "category_id"
+    t.bigint "library_locations_id"
     t.bigint "categories_id"
-    t.bigint "libary_locations_id"
+    t.bigint "library_location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["categories_id"], name: "index_books_on_categories_id"
-    t.index ["libary_locations_id"], name: "index_books_on_libary_locations_id"
+    t.index ["library_location_id"], name: "index_books_on_library_location_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -36,15 +38,15 @@ ActiveRecord::Schema.define(version: 20200820120830) do
     t.index ["ref"], name: "index_categories_on_ref", unique: true
   end
 
-  create_table "libary_locations", force: :cascade do |t|
+  create_table "library_locations", force: :cascade do |t|
     t.string "name"
     t.string "city"
     t.string "ref"
     t.string "location_desc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_libary_locations_on_name", unique: true
-    t.index ["ref"], name: "index_libary_locations_on_ref", unique: true
+    t.index ["name"], name: "index_library_locations_on_name", unique: true
+    t.index ["ref"], name: "index_library_locations_on_ref", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -63,5 +65,5 @@ ActiveRecord::Schema.define(version: 20200820120830) do
   end
 
   add_foreign_key "books", "categories", column: "categories_id"
-  add_foreign_key "books", "libary_locations", column: "libary_locations_id"
+  add_foreign_key "books", "library_locations"
 end

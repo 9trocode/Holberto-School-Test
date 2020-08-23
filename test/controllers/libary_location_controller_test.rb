@@ -1,48 +1,48 @@
 require 'test_helper'
 
-class LibaryLocationsControllerTest < ActionDispatch::IntegrationTest
+class LibaryLocationControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @libary_locations = libary_locations(:one)
+    @library_location = library_location(:one)
   end
 
   test "should get index" do
-    get libary_locations_url
+    get library_location_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_libary_location_url
+    get new_library_location_url
     assert_response :success
   end
 
-  test "should create libary_location" do
-    assert_difference('LibaryLocation.count') do
-      post libary_locations_url, params: {libary_locations: {city: @libary_locations.city, name: @libary_locations.name, ref: @libary_locations.ref } }
+  test "should create library_location" do
+    assert_difference('LibraryLocation.count') do
+      post library_location_url, params: {library_location: {city: @library_location.city, name: @library_location.name, ref: @library_location.ref } }
     end
 
-    assert_redirected_to libary_location_url(LibaryLocations.last)
+    assert_redirected_to library_location_url(LibaryLocations.last)
   end
 
-  test "should show libary_location" do
-    get libary_location_url(@libary_locations)
+  test "should show library_location" do
+    get library_location_url(@library_location)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_libary_location_url(@libary_locations)
+    get edit_library_location_url(@library_location)
     assert_response :success
   end
 
-  test "should update libary_location" do
-    patch libary_location_url(@libary_locations), params: {libary_locations: {city: @libary_locations.city, name: @libary_locations.name, ref: @libary_locations.ref } }
-    assert_redirected_to libary_location_url(@libary_locations)
+  test "should update library_location" do
+    patch library_location_url(@library_location), params: {library_location: {city: @library_location.city, name: @library_location.name, ref: @library_location.ref } }
+    assert_redirected_to library_location_url(@library_location)
   end
 
-  test "should destroy libary_location" do
-    assert_difference('LibaryLocation.count', -1) do
-      delete libary_location_url(@libary_locations)
+  test "should destroy library_location" do
+    assert_difference('LibraryLocation.count', -1) do
+      delete library_location_url(@library_location)
     end
 
-    assert_redirected_to libary_locations_url
+    assert_redirected_to library_location_url
   end
 end

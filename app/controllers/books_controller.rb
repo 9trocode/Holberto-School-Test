@@ -6,9 +6,9 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.joins(:categories, :libary_locations).order("id DESC")
-    @genre = Categories.order("id DESC")
-    @locations = LibaryLocations.order("id DESC")
+    @books = Book.joins(:categories, :library_location).order('id DESC')
+    @genre = Categories.order('id DESC')
+    @locations = LibraryLocation.order('id DESC')
   end
 
   # GET /books/1
@@ -18,22 +18,22 @@ class BooksController < ApplicationController
   # GET /books/new
   def new
     @book = Book.new
-    @genre = Categories.order("id DESC")
-    @locations = LibaryLocations.order("id DESC")
+    @genre = Categories.order('id DESC')
+    @locations = LibraryLocation.order('id DESC')
   end
 
   # GET /books/1/edit
-  def edit;
-    @genre = Categories.order("id DESC")
-    @locations = LibaryLocations.order("id DESC")
+  def edit
+    @genre = Categories.order('id DESC')
+    @locations = LibraryLocation.order('id DESC')
   end
 
   # POST /books
   # POST /books.json
   def create
     @book = Book.new(book_params)
-    @genre = Categories.order("id DESC")
-    @locations = LibaryLocations.order("id DESC")
+    @genre = Categories.order('id DESC')
+    @locations = LibraryLocation.order('id DESC')
     print('book create', @book)
     respond_to do |format|
       if @book.save
@@ -60,6 +60,19 @@ class BooksController < ApplicationController
     end
   end
 
+  def search
+    @genre = Categories.order('id DESC')
+    @locations = LibraryLocation.order('id DESC')
+
+    genre_id = params[:genre_id] # you can get this params from the value of the search form input
+    library_location_id = params[:library_location_id] # you can get this params from the value of the search form input
+    print('params', genre_id, library_location_id)
+    @books = Book.where(categories_id: genre_id,
+                        library_location_id: library_location_id)
+                 .joins(:categories, :library_location).order('id DESC')
+    render :index
+  end
+
   # DELETE /books/1
   # DELETE /books/1.json
   def destroy
@@ -79,6 +92,6 @@ class BooksController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def book_params
-    params.require(:book).permit(:title, :author, :categories_id, :libary_locations_id)
+    params.require(:book).permit(:title, :author, :categories_id, :library_location_id)
   end
 end

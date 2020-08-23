@@ -40,9 +40,9 @@
             <% if current_user.is_admin == true %>
             <a href="#admin" class="iq-waves-effect" data-toggle="collapse" aria-expanded="true"><span class="ripple rippleEffect"></span><i class="ri-admin-line"></i><span>Admin</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
             <ul id="admin" class="iq-submenu collapse show" data-parent="#iq-sidebar-toggle">
-              <li><a href="admin-dashboard.html"><i class="ri-dashboard-line"></i>Dashboard</a></li>
+              <li><a href="<%= admin_path %>"><i class="ri-dashboard-line"></i>Dashboard</a></li>
               <li><a href="<%= genre_path %>"><i class="ri-list-check-2"></i>Genre</a></li>
-              <li><a href="<%= libary_locations_path %>"><i class="ri-file-user-line"></i>Library Locations</a></li>
+              <li><a href="<%= library_locations_path %>"><i class="ri-file-user-line"></i>Library Locations</a></li>
             </ul>
             <% end %>
           </li>
@@ -124,7 +124,6 @@
                 <img src="<%= current_user.profile_url %>" class="img-fluid rounded-circle mr-3" alt="user">
                 <div class="caption">
                   <h6 class="mb-1 line-height"><%= current_user.name %></h6>
-                  <p class="mb-0 text-primary">$20.32</p>
                 </div>
               </a>
             </li>

@@ -3,5 +3,10 @@ class AdminController < ApplicationController
 
 
   # GET /admin
-  def index; end
+  def index;
+    @books = Book.count
+    @genre = Categories.count
+    @user = User.count
+    @locations = LibraryLocation.count
+  end
 end

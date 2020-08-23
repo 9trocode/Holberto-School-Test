@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :libary_locations
-  # resources :users
+  resources :library_locations # resources :users
   resources :books
   # resources :categories
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -22,5 +21,8 @@ Rails.application.routes.draw do
   get 'edit_genre/:id' => 'categories#edit'
   post 'update_genre' => 'categories#update'
   get 'delete_genre/:id' => 'categories#destroy'
+
+  get 'admin' => 'admin#index'
+  get 'search' => 'books#search'
 
 end
