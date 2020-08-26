@@ -52,7 +52,7 @@ $ ./run.sh
 - Run the following command and navigate to http://localhost:3000 in your browser.
 
 ### Login Details
-- To login use either of this data app consist of pre-seeded data by default
+- To login use either of this details, by default app consist of pre-seeded data
 ```sh
 $ email: admin@gmail.com, password: password => role: Admin
 $ email: test@gmail.com, password: password => role: User
