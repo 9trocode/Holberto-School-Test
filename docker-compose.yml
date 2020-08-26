@@ -6,6 +6,8 @@ services:
     image: circleci/postgres
     ports:
       - "5432"
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
     volumes:
       - ./src:/usr/local/src
   web:

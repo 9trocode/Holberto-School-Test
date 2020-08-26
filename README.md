@@ -31,9 +31,7 @@ $ bundle install
 - Turn on your database server.
 - Run the following *rake* commands in your Terminal.
 ```sh
-$ rake db:create
-$ rake db:migrate
-$ rake db:seed
+$ rake db:setup
 ```
 
 ### Launch
@@ -46,12 +44,16 @@ $ rails server
 ### Run Using Docker
 - Download and install [Docker](https://www.docker.com/products/docker-desktop).
 - Turn on Docker Client.
-- Run the following *rake* and *docker* commands in the project root Terminal.
+- Run this bash script on project root.
 ```sh
-$ docker-compose build
-$ rdocker-compose run web rake db:create
-$ docker-compose run web rake db:migrate
-$ docker-compose run web rake db:seed
-$ docker-compose up
+$ chmod +x ./run.sh
+$ ./run.sh
 ```
 - Run the following command and navigate to http://localhost:3000 in your browser.
+
+### Login Details
+- To login use either of this data app consist of pre-seeded data by default
+```sh
+$ email: admin@gmail.com, password: password => role: Admin
+$ email: test@gmail.com, password: password => role: User
+```
