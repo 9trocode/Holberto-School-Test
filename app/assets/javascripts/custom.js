@@ -218,12 +218,12 @@ Index Of Script
             });
         });
 
-        /*---------------------------------------------------------------------
-        Select input
-        -----------------------------------------------------------------------*/
-        jQuery('.select2jsMultiSelect').select2({
-            tags: true
-        });
+        // /*---------------------------------------------------------------------
+        // Select input
+        // -----------------------------------------------------------------------*/
+        // jQuery('.select2jsMultiSelect').select2({
+        //     tags: true
+        // });
 
         /*---------------------------------------------------------------------
         Search input
@@ -260,14 +260,14 @@ Index Of Script
         /*---------------------------------------------------------------------
         Scrollbar
         -----------------------------------------------------------------------*/
-        let Scrollbar = window.Scrollbar;
-        if (jQuery('#sidebar-scrollbar').length) {
-            Scrollbar.init(document.querySelector('#sidebar-scrollbar'), options);
-        }
-        let Scrollbar1 = window.Scrollbar;
-        if (jQuery('#right-sidebar-scrollbar').length) {
-            Scrollbar1.init(document.querySelector('#right-sidebar-scrollbar'), options);
-        }
+        // let Scrollbar = window.Scrollbar;
+        // if (jQuery('#sidebar-scrollbar').length) {
+        //     Scrollbar.init(document.querySelector('#sidebar-scrollbar'), options);
+        // }
+        // let Scrollbar1 = window.Scrollbar;
+        // if (jQuery('#right-sidebar-scrollbar').length) {
+        //     Scrollbar1.init(document.querySelector('#right-sidebar-scrollbar'), options);
+        // }
 
 
 
@@ -279,35 +279,35 @@ Index Of Script
             time: 1000
         });
 
-        /*---------------------------------------------------------------------
-        slick
-        -----------------------------------------------------------------------*/
-        jQuery('.slick-slider').slick({
-            centerMode: true,
-            centerPadding: '60px',
-            slidesToShow: 9,
-            slidesToScroll: 1,
-            focusOnSelect: true,
-            responsive: [{
-                breakpoint: 992,
-                settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '30',
-                    slidesToShow: 3
-                }
-            }, {
-                breakpoint: 480,
-                settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '15',
-                    slidesToShow: 1
-                }
-            }],
-            nextArrow: '<a href="#" class="ri-arrow-left-s-line left"></a>',
-            prevArrow: '<a href="#" class="ri-arrow-right-s-line right"></a>',
-        });
+        // /*---------------------------------------------------------------------
+        // slick
+        // -----------------------------------------------------------------------*/
+        // jQuery('.slick-slider').slick({
+        //     centerMode: true,
+        //     centerPadding: '60px',
+        //     slidesToShow: 9,
+        //     slidesToScroll: 1,
+        //     focusOnSelect: true,
+        //     responsive: [{
+        //         breakpoint: 992,
+        //         settings: {
+        //             arrows: false,
+        //             centerMode: true,
+        //             centerPadding: '30',
+        //             slidesToShow: 3
+        //         }
+        //     }, {
+        //         breakpoint: 480,
+        //         settings: {
+        //             arrows: false,
+        //             centerMode: true,
+        //             centerPadding: '15',
+        //             slidesToShow: 1
+        //         }
+        //     }],
+        //     nextArrow: '<a href="#" class="ri-arrow-left-s-line left"></a>',
+        //     prevArrow: '<a href="#" class="ri-arrow-right-s-line right"></a>',
+        // });
 
         $('#newrealease-slider').slick({
           dots: false,
@@ -655,13 +655,13 @@ Index Of Script
             });
         });
 
-         /*---------------------------------------------------------------------
-           Datatables
-        -----------------------------------------------------------------------*/
-        if(jQuery('.data-tables').length)
-        {
-          $('.data-tables').DataTable();
-        }
+        //  /*---------------------------------------------------------------------
+        //    Datatables
+        // -----------------------------------------------------------------------*/
+        // if(jQuery('.data-tables').length)
+        // {
+        //   $('.data-tables').DataTable();
+        // }
 
         /*---------------------------------------------------------------------
         Button 

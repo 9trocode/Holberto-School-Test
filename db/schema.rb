@@ -18,8 +18,6 @@ ActiveRecord::Schema.define(version: 20200822051025) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.string "author"
-    t.bigint "category_id"
-    t.bigint "library_locations_id"
     t.bigint "categories_id"
     t.bigint "library_location_id"
     t.datetime "created_at", null: false
